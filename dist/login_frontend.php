@@ -26,7 +26,6 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form method="post" action="login_backend.php">
-                                        <?php include('errors.php'); ?>
                                             <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
                                             <input class="form-control"  type="text" name="username">
@@ -45,6 +44,7 @@
 
                                             
                                             <button type="submit" class="btn btn-primary btn-block" name="login_user">Login</button>
+                                            
                                         </form>
                                         <div class="text-center">
                                             <a class="d-block small mt-3" href="register_frontend.php">Register an Account</a>

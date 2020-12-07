@@ -26,11 +26,11 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create An Account</h3></div>
                                     <div class="card-body">
                                         <form method = "post" action="register_backend.php">
-                                            <?php include('errors.php'); ?>
                                             <div class="form-group">
                                               <div class="form-row">
                                                 <div class ="col-md-12">
                                                   <label for="exampleInputName">Username</label>
+                                                  
                                                   <input class="form-control" id="exampleInputName" type="text"   name="username" value="<?php echo $username; ?>" >
 
                                                 </div>
@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="text-center">
 
-                                      <a class="d-block small mt-3" href="login.php">Login Page</a>
+                                      <a class="d-block small mt-3" href="login_frontend.php">Login Page</a>
                              
                                     <!--- <a class="d-block small" href="forgot-password.html">Forgot Password?</a>-->
                                     
