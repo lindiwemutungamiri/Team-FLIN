@@ -44,7 +44,9 @@ VALUES ('$DrugID', '$drug_name', '$manufacturer','$payment_status','$drug_type')
 
 if ($conn->query($sql) === TRUE) {
 
-echo "alert('New record created successfully')";
+
+    header('location: index.php');
+
 
 } else {
 
