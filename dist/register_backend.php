@@ -12,10 +12,7 @@ $password_1 = $_POST['password_1'];
 
 $password_2 = $_POST['password_2'];
 
-// form validation: ensure that the form is correctly filled ...
 
-
-// by adding (array_push()) corresponding error unto $errors array
 $data=$_POST;
 
 if (empty($data['username']) ||
@@ -73,6 +70,14 @@ $_SESSION['username'] = $username;
 
 $_SESSION['success'] = "You are now logged in";
 
+if (isset($_SESSION['message'])){
+
+
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		
+
+}
 header('location: login_frontend.php');
 
 

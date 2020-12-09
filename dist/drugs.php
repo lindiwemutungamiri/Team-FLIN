@@ -1,285 +1,290 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Nyika Clinic Admin Dashboard</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">Nyika Clinic</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                   
-                    <div class="input-group-append">
-                       
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Nyika Clinic Admin Dashboard</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.php">Nyika Clinic</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+
+                <div class="input-group-append">
+
+                </div>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+
+                    <a class="dropdown-item" href="login_frontend.php">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Main Dashboard
+                        </a>
+
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+
+                        </div>
+                        <div class="sb-sidenav-menu-heading">Clinic Data</div>
+                        <a class="nav-link" href="drugs.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Drugs
+                        </a>
+                        <a class="nav-link" href="employees.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Employees
+                        </a>
+                        <a class="nav-link" href="patients.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Patients
+                        </a>
+                        <a class="nav-link" href="register_frontend.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Register Users
+                        </a>
+
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a>
                     </div>
                 </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        
-                        <a class="dropdown-item" href="login_frontend.php">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Main Dashboard
-                            </a>
-                            
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Clinic Data</div>
-                            <a class="nav-link" href="drugs.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Drugs
-                            </a>
-                            <a class="nav-link" href="employees.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Employees
-                            </a>
-                            <a class="nav-link" href="patients.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Patients
-                            </a>
-                            <a class="nav-link" href="register_frontend.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Register Users
-                            </a>
-                            
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        lindiwemutungamiri
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4">Drugs Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Drugs Dashboard</li>
-                        </ol>
-                        
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        Payable Drugs
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    lindiwemutungamiri
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <h1 class="mt-4">Drugs Dashboard</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Drugs Dashboard</li>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-area mr-1"></i>
+                                    Payable Drugs
                                 </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Non Payable Drugs
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
+                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                Drugs Table 
+                        <div class="col-xl-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-bar mr-1"></i>
+                                    Non Payable Drugs
+                                </div>
+                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                             </div>
-                            <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "nyikaclinic";
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Drugs Table
+                        </div>
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "nyikaclinic";
 
-                            //create connection
-                            
-                           $conn = new mysqli($servername, $username, $password, $dbname);
-                            $sqll="SELECT * FROM drugs WHERE payment_status ='payable' AND number_available<= 5000";
-                            if(mysqli_query($conn,$sqll)){
-                                echo"";
-                            }else{
-                               
-                                echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
+                        //create connection
+
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        $sqll = "SELECT * FROM drugs WHERE payment_status ='payable' AND number_available<= 5000";
+                        if (mysqli_query($conn, $sqll)) {
+                            echo "";
+                        } else {
+
+                            echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
+                        }
+                        $result = mysqli_query($conn, $sqll);
+                        if (mysqli_num_rows($result) > 0) {
+                            //output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
                             }
-                            $result = mysqli_query($conn,$sqll);
-                            if(mysqli_num_rows($result)>0){
-                                //output data of each row
-                                while($row=mysqli_fetch_assoc($result)){
+                        }
 
-                                }
-                            }
+                        ?>
 
-                            ?>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
 
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                
-                                                <th>DrugID</th>
-                                                <th>Drug Name</th>
-                                                <th>Manufactuer</th>
-                                                <th>Number Available</th>
-                                                <th>Payment Status</th>
-                                                <th>Drug Type</th>
-                                            </tr>
-                                        </thead>
-                                        
-                                        </thead>
-                                        <tfoot>
+                                            <th>DrugID</th>
+                                            <th>Drug Name</th>
+                                            <th>Manufacturer</th>
+                                            <th>Number Available</th>
+                                            <th>Payment Status</th>
+                                            <th>Drug Type</th>
+                                            <th colspan="2">Actions</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    </thead>
+                                    <tfoot>
+
                                         <?php
 
-                                            $servername = "localhost";
+                                        $servername = "localhost";
 
-                                            $username = "root";
+                                        $username = "root";
 
-                                            $password = "";
+                                        $password = "";
 
-                                            $dbname = "nyikaclinic";
+                                        $dbname = "nyikaclinic";
 
-                                            // Create connection
+                                        // Create connection
 
-                                            $conn = new mysqli($servername, $username, $password, $dbname);
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                                            $sql = 'SELECT * from drugs';
+                                        $sql = 'SELECT * from drugs';
 
-                                            if (mysqli_query($conn, $sql)) {
+                                        if (mysqli_query($conn, $sql)) {
 
                                             echo "!";
-
-                                            } else {
+                                        } else {
 
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
 
-                                            }
+                                        $count = 1;
 
-                                            $count=1;
+                                        $result = mysqli_query($conn, $sql);
 
-                                            $result = mysqli_query($conn, $sql);
-
-                                            if (mysqli_num_rows($result) > 0) {
+                                        if (mysqli_num_rows($result) > 0) {
 
                                             // output data of each row
 
-                                            while($row = mysqli_fetch_assoc($result)) { ?>
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
 
-                                            <tbody>
+                                                <tbody>
 
-                                            <tr>
+                                                    <tr>
 
-                                            <th>
+                                                        <th>
 
-                                            <?php echo $row['DrugID']; ?>
+                                                            <?php echo $row['DrugID']; ?>
 
-                                            </th>
+                                                        </th>
 
-                                            <td>
+                                                        <td>
 
-                                            <?php echo $row['drug_name']; ?>
+                                                            <?php echo $row['drug_name']; ?>
 
-                                            </td>
+                                                        </td>
 
-                                            <td>
+                                                        <td>
 
-                                            <?php echo $row['manufacturer']; ?>
+                                                            <?php echo $row['manufacturer']; ?>
 
-                                            </td>
+                                                        </td>
 
-                                            <td>
+                                                        <td>
 
-                                            <?php echo $row['number_available']; ?>
+                                                            <?php echo $row['number_available']; ?>
 
-                                            </td>
+                                                        </td>
 
-                                            <td>
+                                                        <td>
 
-                                            <?php echo $row['payment_status']; ?>
+                                                            <?php echo $row['payment_status']; ?>
 
-                                            </td>
-                                            <td>
-                                                <?php echo $row['drug_type'];?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $row['drug_type']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+                                                        </td>
 
-                                            </tr>
+                                                    </tr>
 
-                                            </tbody>
+                                                </tbody>
 
-                                            <?php
+                                        <?php
 
-                                            $count++;
-
+                                                $count++;
                                             }
-
-                                            } else {
+                                        } else {
 
                                             echo '0 results';
+                                        }
 
-                                            }
+                                        ?>
 
-                                            ?>
-                                            
 
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Nyika Clinic 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Nyika Clinic 2020</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
                         </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-    </body>
-</html>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
+</body>
 
+</html>
