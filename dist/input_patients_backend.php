@@ -1,67 +1,80 @@
-<?php 
-	
-	$db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
+<?php
+//create connection
 
-	// initialize variables
-	$PatientID = "";
-	$first_name = "";
-    $last_name= "";
-    $Gender="";
-    $DOB="";
-    $p_address = "";
-    $phone_number = "";
-    $marital_status = "";
-    $update=false;
+$db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
+//check connection
+if (!$db) {
+    die("Connection failed: " . mysqli_connect_error());
+} else {
+    echo "connection with input patients backend is successful!";
+} // initialize variables
+$PatientID = "";
+$first_name = "";
+$last_name = "";
+$Gender = "";
+$DOB = "";
+$p_address = "";
+$phone_number = "";
+$marital_status = "";
+$update = false;
 
-    if (isset($_POST['update'])) {
-       
-         $PatientID = $REQUEST['PatientID'];
-         $first_name = $_REQUEST['first_name'];
-         $last_name = $_REQUEST['last_name'];
-         $Gender = $_REQUEST['Gender'];
-         $DOB= $_REQUEST['DOB'];
-         $p_address = $_REQUEST['p_address'];
-         $phone_number= $_REQUEST['phone_number'];
-         $marital_status = $_REQUEST['marital_status'];
-     
- 
-  $sql= "UPDATE patients SET first_name='".$first_name."',last_name = '".$last_name."', Gender='". $Gender."',DOB = '".$DOB."', ,p_address= '".$p_address."',  phone_number='".$phone_number."' WHERE PatientID='".$PatientID."'";
-        if (mysqli_query($db, $sql)){
-            echo "Record updated successfully!";
- 
-        }else{
-            echo "Error. Wasnt able to update $sql. ". mysqli_error($db);
-        }
-       
-         header('location: input_patients.php?edit.php');
-     }
+$update = false;
+
+//grab form data from update button
+
+if (isset($_POST['update'])) {
+
+    $PatientID = $_POST['PatientID'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $Gender = $_POST['Gender'];
+    $DOB = $_POST['DOB'];
+    $p_address = $_POST['p_address'];
+    $phone_number = $_POST['phone_number'];
+    $marital_status = $_POST['marital_status'];
 
 
-
-	if (isset($_POST['save'])) {
-        $PatientID = $REQUEST['PatientID'];
-        $first_name = $_REQUEST['first_name'];
-        $last_name = $_REQUEST['last_name'];
-        $Gender = $_REQUEST['Gender'];
-        $DOB= $_REQUEST['DOB'];
-        $p_address = $_REQUEST['p_address'];
-        $phone_number= $_REQUEST['phone_number'];
-        $marital_status = $_REQUEST['marital_status'];
-    
-
-
-
-		mysqli_query($db, "INSERT INTO patients (PatientID, first_name,last_name, Gender, DOB, p_address, phone_number, marital_status) VALUES ('$PatientID','$first_name','$last_name','$Gender','$DOB',,'$p_address',,'$phone_number','$marital_status')"); 
-		$_SESSION['message'] = "Information Saved!"; 
-		header('location: patients.php');
+    $sql = "UPDATE patients SET first_name='" . $first_name . "',last_name = '" . $last_name . "', Gender='" . $Gender . "',DOB = '" . $DOB . "', ,p_address= '" . $p_address . "',  phone_number='" . $phone_number . "' WHERE PatientID='" . $PatientID . "'";
+    if (mysqli_query($db, $sql)) {
+        echo "Record updated successfully!";
+    } else {
+        echo "Error. Wasnt able to update $sql. " . mysqli_error($db);
     }
 
-  
+    header('location: input_patients.php?edit.php');
+}
 
-    if (isset($_GET['del'])) {
-        $PatientID = $_GET['del'];
-        mysqli_query($db, "DELETE FROM patients WHERE PatientID=$PatientID");
-        $_SESSION['message'] = "Information Deleted"; 
-        header('location: patients.php');
+
+
+if (isset($_POST['save'])) {
+    $PatientID = $_POST['PatientID'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $Gender = $_POST['Gender'];
+    $DOB = $_POST['DOB'];
+    $p_address = $_POST['p_address'];
+    $phone_number = $_POST['phone_number'];
+    $marital_status = $_POST['marital_status'];
+
+
+    //write query
+
+    $sql = "INSERT INTO patients (PatientID, first_name,last_name, Gender, DOB, p_address, phone_number, marital_status) VALUES ('$PatientID','$first_name','$last_name','$Gender','$DOB','$p_address','$phone_number','$marital_status')";
+    $results = mysqli_query($db, $sql);
+
+    //verify results and display appropriate message
+    if ($results) {
+        echo "registered successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }
+}
 
+
+
+if (isset($_GET['del'])) {
+    $PatientID = $_GET['del'];
+    mysqli_query($db, "DELETE FROM patients WHERE PatientID=$PatientID");
+    $_SESSION['message'] = "Information Deleted";
+    header('location: patients.php');
+}

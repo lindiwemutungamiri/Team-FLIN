@@ -159,7 +159,7 @@
 														
 														
                                                         <td>
-                                                            <a id= "edit" href="input_patients.php?edit=<?php echo $row['PatientID']; ?>" class="edit_btn">Edit</a>
+                                                            <a href="input_patients.php?edit=<?php echo $row['PatientID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
                                                             <a href="input_patients.php?del=<?php echo $row['PatientID']; ?>" class="del_btn">Delete</a>
@@ -234,30 +234,6 @@
 		<?php endif ?>	
 	</form>
     
-                        <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "nyikaclinic";
-
-                        //create connection
-
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        $sqll = "SELECT * FROM patients";
-                        if (mysqli_query($conn, $sqll)) {
-                            echo "";
-                        } else {
-
-                            echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
-                        }
-                        $result = mysqli_query($conn, $sqll);
-                        if (mysqli_num_rows($result) > 0) {
-                            //output data of each row
-                            while ($row = mysqli_fetch_assoc($result)) {
-                            }
-                        }
-
-                        ?>
 
                        
                     </div>
