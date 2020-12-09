@@ -155,6 +155,7 @@
                                             <th>Address</th>
                                             <th>Phone Number</th>
                                             <th>Marital Status</th>
+                                           
 
                                             <th colspan="2">Actions </th>
                                            
@@ -258,10 +259,10 @@
                                                             <a href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="inpute_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                                            <a href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                                                         </td>
                                                         <td>
-                                                            <a href="inpute_employees.php?save=<?php echo $row['EmployeeID']; ?>" class="del_btn">Add</a>
+                                                            <a href="input_employees.php?save=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Add</a>
                                                         </td>
                                                         
 

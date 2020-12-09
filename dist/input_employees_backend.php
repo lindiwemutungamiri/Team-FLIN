@@ -10,7 +10,7 @@
     $Gender="";
     $DOB = "";
     $Positions="";
-    $address="";
+    $empaddress="";
     $phone_number ="";
     $marital_status="";
     $update=false;
@@ -24,7 +24,7 @@
          $Gender= $_REQUEST['Gender'];
          $DOB = $_REQUEST['DOB'];
          $Positions = $_REQUEST['Positions'];
-         $address = $_REQUEST['address'];
+         $empaddress = $_REQUEST['address'];
          $phone_number = $_REQUEST['phone_number'];
          $marital_status = $_REQUEST['marital_status'];
 
@@ -32,7 +32,7 @@
 
 
  
-  $sql= "UPDATE patients SET first_name='".$first_name."', last_name = '".$last_name."', email ='". $email."',Gender = '".$Gender."', drug_type='".$drug_type."' WHERE DrugID='".$DrugID."'";
+  $sql= "UPDATE employees SET first_name='".$first_name."', last_name = '".$last_name."', email ='". $email."',Gender = '".$Gender."', DOB = '".$DOB."',Positions = '".$Positions."',empaddress = '".$empaddress."',phone_number = '".$phone_number."', marital_status='".$marital_status."' WHERE EmployeeID='".$EmployeeID."'";
         if (mysqli_query($db, $sql)){
             echo "Record updated successfully!";
  
@@ -40,7 +40,7 @@
             echo "Error. Wasnt able to update $sql. ". mysqli_error($db);
         }
        
-         header('location: inputdrugs.php?edit.php');
+         header('location: input_employees.php?edit.php');
      }
 
 
@@ -68,7 +68,7 @@
   
 
     if (isset($_GET['del'])) {
-        $DrugID = $_GET['del'];
+        $EmployeeID = $_GET['del'];
         mysqli_query($db, "DELETE FROM employees WHERE EmployeeID=$EmployeeID");
         $_SESSION['message'] = "Information Deleted"; 
         header('location: employees.php');

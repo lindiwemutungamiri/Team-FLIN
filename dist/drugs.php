@@ -270,10 +270,7 @@
 
 
                                 </table>
-                                <td>
-                                    <a href="inputdrugs.php?save=<?php echo $row['DrugID']; ?>" class="edit_btn">Add</a>
-                                </td>
-
+                                
                             </div>
                         </div>
                     </div>

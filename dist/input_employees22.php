@@ -167,11 +167,12 @@ if (isset($_GET['edit'])) {
                                 <?php echo $row['marital_status']; ?>
                             </td>
                             <td>
-                                <a id="edit" href="inputdrugs.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
+                                <a id="edit" href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                             </td>
                             <td>
-                                <a href="inputdrugs.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                <a href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                             </td>
+                            
 
                         </tr>
 
@@ -235,7 +236,7 @@ if (isset($_GET['edit'])) {
         </div>
         <div class="input-group">
             <label>Address</label>
-            <input type="text" name="address" value="<?php echo $address; ?>">
+            <input type="text" name="empaddress" value="<?php echo $empaddress; ?>">
         </div>
         <div class="input-group">
             <label>Phone Number</label>

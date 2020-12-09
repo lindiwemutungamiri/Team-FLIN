@@ -1,22 +1,26 @@
 <?php  include('server.php'); ?>
-<?php include('inputdrugs_backend.php');?>
+<?php include('input_patients_backend.php');?>
 
 
 <?php 
 	if (isset($_GET['edit'])) {
-		$DrugID = $_GET['edit'];
+		$PatientID = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM drugs WHERE DrugID=$DrugID");
+		$record = mysqli_query($db, "SELECT * FROM patients WHERE PatientID=$PatientID");
 
 		 
 		// if (count($record)==1 ) {
 			$n = mysqli_fetch_array($record);
-			$DrugID = $n['DrugID'];
-			$drug_name = $n['drug_name'];
-			$manufacturer = $n['manufacturer'];
-			$number_available = $n['number_available'];
-			$payment_status = $n['payment_status'];
-			$drug_type = $n['drug_type'];
+			$PatientID = $n['PatientID'];
+			$first_name = $n['first_name'];
+			$last_name = $n['last_name'];
+			$Gender = $n['Gender'];
+			$DOB = $n['DOB'];
+            $p_address = $n['p_address'];
+            $phone_number = $n['phone_number'];
+            $marital_status = $n['marital_status'];
+
+
 
 			 
 		//}
@@ -35,7 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-	<title>Input Drugs</title>
+	<title>Patients </title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
  
 
@@ -53,12 +57,14 @@
                                     <thead>
                                         <tr>
 
-                                            <th>DrugID</th>
-                                            <th>Drug Name</th>
-                                            <th>Manufacturer</th>
-                                            <th>Number Available</th>
-                                            <th>Payment Status</th>
-                                            <th>Drug Type</th>
+                                            <th>PatientID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Gender</th>
+                                            <th>DOB</th>
+                                            <th>Address</th>
+                                            <th>Phone Number</th>
+                                            <th>Marital Status</th>
                                             <th colspan="2">Actions</th>
 
                                         </tr>
@@ -82,7 +88,7 @@
 
                                         $conn = new mysqli($servername, $username, $password, $dbname);
 
-                                        $sql = 'SELECT * from drugs';
+                                        $sql = 'SELECT * from patients';
 
                                         if (mysqli_query($conn, $sql)) {
 
@@ -108,43 +114,55 @@
 
                                                         <th>
 
-                                                            <?php echo $row['DrugID']; ?>
+                                                            <?php echo $row['PatientID']; ?>
 
                                                         </th>
 
                                                         <td>
 
-                                                            <?php echo $row['drug_name']; ?>
+                                                            <?php echo $row['first_name']; ?>
 
                                                         </td>
 
                                                         <td>
 
-                                                            <?php echo $row['manufacturer']; ?>
+                                                            <?php echo $row['last_name']; ?>
 
                                                         </td>
 
                                                         <td>
 
-                                                            <?php echo $row['number_available']; ?>
+                                                            <?php echo $row['Gender']; ?>
 
                                                         </td>
 
                                                         <td>
 
-                                                            <?php echo $row['payment_status']; ?>
+                                                            <?php echo $row['DOB']; ?>
 
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['drug_type']; ?>
+
+                                                            <?php echo $row['p_address']; ?>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <?php echo $row['phone_number']; ?>
+
+                                                        </td>
+                                  
+                                  
+                                                        <td>
+                                                            <?php echo $row['marital_status']; ?>
 														</td>
 														
 														
                                                         <td>
-                                                            <a id= "edit" href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
+                                                            <a id= "edit" href="input_patients.php?edit=<?php echo $row['PatientID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
+                                                            <a href="input_patients.php?del=<?php echo $row['PatientID']; ?>" class="del_btn">Delete</a>
                                                         </td>
 
                                                     </tr>
@@ -165,39 +183,47 @@
 
                                 </table>
                                 
-<form method="post" action="inputdrugs_backend.php" >
+<form method="post" action="input_patients_backend.php" >
 
-<div class="card-header"><h3 class="text-center font-weight-light my-4"> Drugs</h3></div>
+<div class="card-header"><h3 class="text-center font-weight-light my-4"> Patients</h3></div>
 
 
 
 
 		<div class="input-group">
-			<label>Drug ID</label>
-			<input type="text" name="DrugID" value="<?php echo $DrugID; ?>">
+			<label>Patient ID</label>
+			<input type="text" name="PatientID" value="<?php echo $PatientID; ?>">
 		</div>
 		<div class="input-group">
-			<label>Drug Name</label>
-			<input type="text" name="drug_name" value="<?php echo $drug_name; ?>">
+			<label>First Name</label>
+			<input type="text" name="first_name" value="<?php echo $first_name; ?>">
         </div>
 
         <div class="input-group">
-			<label>Manufacturer</label>
-			<input type="text" name="manufacturer" value="<?php echo $manufacturer; ?>">
+			<label>Last Name</label>
+			<input type="text" name="last_name" value="<?php echo $last_name; ?>">
         </div>
 
         <div class="input-group">
-			<label>Number Available</label>
-			<input type="text" name="number_available"  value="<?php echo $number_available; ?>">
+			<label>Gender</label>
+			<input type="text" name="Gender"  value="<?php echo $Gender; ?>">
         </div>
 
         <div class="input-group">
-			<label>Payment Status</label>
-			<input type="text" name="payment_status" value="<?php echo $payment_status; ?>">
+			<label>DOB</label>
+			<input type="text" name="DOB" value="<?php echo $DOB; ?>">
         </div>
         <div class="input-group">
-			<label>Drug Type</label>
-			<input type="text" name="drug_type" value="<?php echo $drug_type;?>">
+			<label>Address</label>
+			<input type="text" name="p_address" value="<?php echo $p_address; ?>">
+        </div>
+        <div class="input-group">
+			<label>Phone Number</label>
+			<input type="text" name="phone_number" value="<?php echo $phone_number; ?>">
+        </div>
+        <div class="input-group">
+			<label>Marital Status</label>
+			<input type="text" name="marital_status" value="<?php echo $marital_status;?>">
 		</div>
 		<div class="input-group">
 	
@@ -208,8 +234,7 @@
 		<?php endif ?>	
 	</form>
     
-						<?php
-						
+                        <?php
                         $servername = "localhost";
                         $username = "root";
                         $password = "";
@@ -218,7 +243,7 @@
                         //create connection
 
                         $conn = new mysqli($servername, $username, $password, $dbname);
-                        $sqll = "SELECT * FROM drugs";
+                        $sqll = "SELECT * FROM patients";
                         if (mysqli_query($conn, $sqll)) {
                             echo "";
                         } else {
