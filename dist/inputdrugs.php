@@ -1,4 +1,25 @@
 <?php  include('server.php'); ?>
+<?php include('inputdrugs_backend.php');?>
+
+
+<?php 
+	if (isset($_GET['edit'])) {
+		$DrugID = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($db, "SELECT * FROM drugs WHERE DrugID=$DrugID");
+	
+
+		if (count($record)==1 ) {
+			$n = mysqli_fetch_array($record);
+			$DrugID = $n['DrugID'];
+			$drug_name = $n['drug_name'];
+			$manufacturer = $n['manufacturer'];
+			$number_available = $n['number_available'];
+			$payment_status = $n['payment_status'];
+			$drug_type = $n['drug_type'];
+		}
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +62,8 @@
                                     </thead>
                                     <tfoot>
 
-                                        <?php
+										<?php
+											
 
                                         $servername = "localhost";
 
@@ -110,12 +132,13 @@
                                                         </td>
                                                         <td>
                                                             <?php echo $row['drug_type']; ?>
+														</td>
+														
+                                                        <td>
+                                                            <a id= "edit" href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+                                                            <a href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
                                                         </td>
 
                                                     </tr>
@@ -137,38 +160,46 @@
                                 </table>
                                 
 <form method="post" action="inputdrugs_backend.php" >
-<div class="card-header"><h3 class="text-center font-weight-light my-4">Add Drugs</h3></div>
+
+<div class="card-header"><h3 class="text-center font-weight-light my-4"> Drugs</h3></div>
+
+
+
 
 		<div class="input-group">
 			<label>Drug ID</label>
-			<input type="text" name="DrugID" value="">
+			<input type="text" name="DrugID" value="<?php echo $DrugID; ?>">
 		</div>
 		<div class="input-group">
 			<label>Drug Name</label>
-			<input type="text" name="drug_name" value="">
+			<input type="text" name="drug_name" value="<?php echo $drug_name; ?>">
         </div>
 
         <div class="input-group">
 			<label>Manufacturer</label>
-			<input type="text" name="manufacturer" value="">
+			<input type="text" name="manufacturer" value="<?php echo $manufacturer; ?>">
         </div>
 
         <div class="input-group">
 			<label>Number Available</label>
-			<input type="text" name="number_available"  value="">
+			<input type="text" name="number_available"  value="<?php echo $number_available; ?>">
         </div>
 
         <div class="input-group">
 			<label>Payment Status</label>
-			<input type="text" name="payment_status" value="">
+			<input type="text" name="payment_status" value="<?php echo $payment_status; ?>">
         </div>
         <div class="input-group">
 			<label>Drug Type</label>
-			<input type="text" name="drug_type" value="">
+			<input type="text" name="drug_type" value="<?php echo $drug_type;?>">
 		</div>
 		<div class="input-group">
-			<button class="btn" type="submit" name="save" >Save</button>
-		</div>
+	
+		<?php if ($update == true): ?>
+	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+		<?php else: ?>
+	<button class="btn" type="submit" name="save" >Save</button>
+		<?php endif ?>	
 	</form>
     
                         <?php
@@ -180,7 +211,7 @@
                         //create connection
 
                         $conn = new mysqli($servername, $username, $password, $dbname);
-                        $sqll = "SELECT * FROM drugs WHERE payment_status ='payable' AND number_available<= 5000";
+                        $sqll = "SELECT * FROM drugs";
                         if (mysqli_query($conn, $sqll)) {
                             echo "";
                         } else {

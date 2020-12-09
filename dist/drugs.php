@@ -116,7 +116,8 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Drugs Table
+                            Drugs Table 
+                            
                         </div>
                         <?php
                         $servername = "localhost";
@@ -155,7 +156,10 @@
                                             <th>Number Available</th>
                                             <th>Payment Status</th>
                                             <th>Drug Type</th>
-                                            <th colspan="2">Actions</th>
+                                            <th colspan="2">Actions </th>
+                                            <td>
+                                                <a href="inputdrugs.php?edit<?php echo $row['DrugID']; ?>" class="add_btn">Add Drug</a>
+                                            </td>
 
                                         </tr>
                                     </thead>
@@ -182,6 +186,7 @@
                                         if (mysqli_query($conn, $sql)) {
 
                                             echo "!";
+                                            
                                         } else {
 
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -198,8 +203,10 @@
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
 
                                                 <tbody>
+                                                    
 
                                                     <tr>
+                                                        
 
                                                         <th>
 
@@ -233,21 +240,26 @@
                                                         <td>
                                                             <?php echo $row['drug_type']; ?>
                                                         </td>
+                                                        
                                                         <td>
-                                                            <a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a>
+                                                            <a href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+                                                            <a href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
                                                         </td>
+                                                        
 
                                                     </tr>
+                                                    
 
                                                 </tbody>
+                                                
 
                                         <?php
 
                                                 $count++;
                                             }
+                                            
                                         } else {
 
                                             echo '0 results';
@@ -257,10 +269,12 @@
 
 
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
