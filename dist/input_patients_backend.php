@@ -33,8 +33,8 @@ if (isset($_POST['update'])) {
     $phone_number = $_POST['phone_number'];
     $marital_status = $_POST['marital_status'];
 
-
-    $sql = "UPDATE patients SET first_name='" . $first_name . "',last_name = '" . $last_name . "', Gender='" . $Gender . "',DOB = '" . $DOB . "', ,p_address= '" . $p_address . "',  phone_number='" . $phone_number . "' WHERE PatientID='" . $PatientID . "'";
+//write query
+    $sql = "UPDATE patients SET first_name='" . $first_name . "',last_name = '" . $last_name . "', Gender='" . $Gender . "',DOB = '" . $DOB . "' ,p_address= '" . $p_address . "',  phone_number='" . $phone_number . "' WHERE PatientID='" . $PatientID . "'";
     if (mysqli_query($db, $sql)) {
         echo "Record updated successfully!";
     } else {
