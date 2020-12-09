@@ -48,7 +48,7 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                Main Dashboard
                             </a>
                             
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -72,7 +72,7 @@
                                 Register Users
                             </a>
                             
-                           
+                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -84,9 +84,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Patients Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Patients Dashboard</li>
                         </ol>
                         
                         <div class="row">
@@ -94,7 +94,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
-                                        Payable Drugs
+                                       Female Patients
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar mr-1"></i>
-                                        Non Payable Drugs
+                                        Male Patients
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -112,7 +112,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Drugs Table 
+                                Patients Table 
                             </div>
                             <?php
                             $servername = "localhost";
@@ -123,7 +123,7 @@
                             //create connection
                             
                            $conn = new mysqli($servername, $username, $password, $dbname);
-                            $sqll="SELECT * FROM drugs WHERE payment_status ='payable' AND number_available<= 5000";
+                            $sqll="SELECT * FROM patients";
                             if(mysqli_query($conn,$sqll)){
                                 echo"";
                             }else{
@@ -146,12 +146,14 @@
                                         <thead>
                                             <tr>
                                                 
-                                                <th>DrugID</th>
-                                                <th>Drug Name</th>
-                                                <th>Manufactuer</th>
-                                                <th>Number Available</th>
-                                                <th>Payment Status</th>
-                                                <th>Drug Type</th>
+                                                <th>PatientID</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Gender</th>
+                                                <th>DOB</th>
+                                                <th>Address</th>
+                                                <th>Phone Number</th>
+                                                <th>Marital Status</th>
                                             </tr>
                                         </thead>
                                         
@@ -171,7 +173,7 @@
 
                                             $conn = new mysqli($servername, $username, $password, $dbname);
 
-                                            $sql = 'SELECT * from drugs';
+                                            $sql = 'SELECT * from patients';
 
                                             if (mysqli_query($conn, $sql)) {
 
@@ -199,35 +201,45 @@
 
                                             <th>
 
-                                            <?php echo $row['DrugID']; ?>
+                                            <?php echo $row['PatientID']; ?>
 
                                             </th>
 
                                             <td>
 
-                                            <?php echo $row['drug_name']; ?>
+                                            <?php echo $row['first_name']; ?>
 
                                             </td>
 
                                             <td>
 
-                                            <?php echo $row['manufacturer']; ?>
+                                            <?php echo $row['last_name']; ?>
 
                                             </td>
 
                                             <td>
 
-                                            <?php echo $row['number_available']; ?>
+                                            <?php echo $row['Gender']; ?>
 
                                             </td>
 
                                             <td>
 
-                                            <?php echo $row['payment_status']; ?>
+                                            <?php echo $row['DOB']; ?>
 
                                             </td>
                                             <td>
-                                                <?php echo $row['drug_type'];?>
+
+                                            <?php echo $row['address']; ?>
+
+                                            </td>
+                                            <td>
+
+                                            <?php echo $row['phone_number']; ?>
+
+                                            </td>
+                                            <td>
+                                                <?php echo $row['marital status'];?>
 
                                             </tr>
 
