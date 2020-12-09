@@ -7,9 +7,9 @@
 		$DrugID = $_GET['edit'];
 		$update = true;
 		$record = mysqli_query($db, "SELECT * FROM drugs WHERE DrugID=$DrugID");
-	
 
-		if (count($record)==1 ) {
+		 
+		// if (count($record)==1 ) {
 			$n = mysqli_fetch_array($record);
 			$DrugID = $n['DrugID'];
 			$drug_name = $n['drug_name'];
@@ -17,7 +17,12 @@
 			$number_available = $n['number_available'];
 			$payment_status = $n['payment_status'];
 			$drug_type = $n['drug_type'];
-		}
+
+			 
+		//}
+	
+
+	
 	}
 ?>
 
@@ -133,6 +138,7 @@
                                                         <td>
                                                             <?php echo $row['drug_type']; ?>
 														</td>
+														
 														
                                                         <td>
                                                             <a id= "edit" href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>

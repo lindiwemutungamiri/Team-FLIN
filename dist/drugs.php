@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,8 +115,8 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Drugs Table 
-                            
+                            Drugs Table
+
                         </div>
                         <?php
                         $servername = "localhost";
@@ -157,9 +156,6 @@
                                             <th>Payment Status</th>
                                             <th>Drug Type</th>
                                             <th colspan="2">Actions </th>
-                                            <td>
-                                                <a href="inputdrugs.php?edit<?php echo $row['DrugID']; ?>" class="add_btn">Add Drug</a>
-                                            </td>
 
                                         </tr>
                                     </thead>
@@ -186,7 +182,6 @@
                                         if (mysqli_query($conn, $sql)) {
 
                                             echo "!";
-                                            
                                         } else {
 
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -203,16 +198,17 @@
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
 
                                                 <tbody>
-                                                    
+
 
                                                     <tr>
-                                                        
+
 
                                                         <th>
 
                                                             <?php echo $row['DrugID']; ?>
 
                                                         </th>
+
 
                                                         <td>
 
@@ -240,26 +236,31 @@
                                                         <td>
                                                             <?php echo $row['drug_type']; ?>
                                                         </td>
-                                                        
+
+
                                                         <td>
                                                             <a href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
                                                             <a href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
                                                         </td>
-                                                        
+                                                        <td>
+                                                            <a href="inputdrugs.php?save=<?php echo $row['DrugID']; ?>" class="edit_btn">Add</a>
+                                                        </td>
+
+
 
                                                     </tr>
-                                                    
+
+
 
                                                 </tbody>
-                                                
+
 
                                         <?php
 
                                                 $count++;
                                             }
-                                            
                                         } else {
 
                                             echo '0 results';
@@ -269,12 +270,15 @@
 
 
                                 </table>
-                                
+                                <td>
+                                    <a href="inputdrugs.php?save=<?php echo $row['DrugID']; ?>" class="edit_btn">Add</a>
+                                </td>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
