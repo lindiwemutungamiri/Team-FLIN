@@ -65,6 +65,7 @@ if (isset($_POST['save'])) {
     //verify results and display appropriate message
     if ($results) {
         echo "registered successfully";
+        header('location: input_patients.php?edit.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }

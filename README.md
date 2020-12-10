@@ -6,19 +6,10 @@
 
 ## Link to Azure Hosting
 
-[![SB Admin Preview](https://assets.startbootstrap.com/img/screenshots/templates/sb-admin.png)](https://startbootstrap.github.io/startbootstrap-sb-admin/)
-
-**[View Live Preview](https://startbootstrap.github.io/startbootstrap-sb-admin/)**
 
 
 ## Link to Demo Video 
 
-To begin using this template, choose one of the following options to get started:
-
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template/sb-admin/)
-* Install via npm: `npm i startbootstrap-sb-admin`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-sb-admin.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-sb-admin)
 
 ## Usage
 
@@ -28,23 +19,15 @@ To begin using this template, choose one of the following options to get started
 
 ### How to use and run the application
 
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `scripts/` directory to see which tasks are included with the dev environment.
+After clicking on the website link, it should take you to the login page. Then from the login page you can login to the system if you are a registered user and you login with the correct username and password. Since this is a clinic management system where the system was recommended by the BOD to computerise the system, the system is mainly made for the admin. 
 
+After login you are taken to the admin dashboard. In the admin dashboard, there are icons on the left. you can click on those icons to view the patients table indicating all the patients that have visited the hospital. The drugs table showing all the drugs in the hospital. There is no need to increment the number of drugs available since drugs do not come in ones and when a whole package comes, the user just edits and adds that number to the existing numbers.
+
+The same goes for the employees as well where the user can add, delete, update or view an employee. That is how the clinic managment system designed for the admin works.
 
 
 ## How to run the tests
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
 
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
 ## Nyika  Clinic Management System

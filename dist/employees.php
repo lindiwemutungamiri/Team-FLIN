@@ -244,7 +244,7 @@
                                                             <?php echo $row['Positions']; ?>
                                                         <td>
 
-                                                            <?php echo $row['address']; ?>
+                                                            <?php echo $row['empaddress']; ?>
 
                                                         </td>
                                                         <td>

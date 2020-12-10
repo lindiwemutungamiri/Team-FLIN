@@ -1,7 +1,16 @@
 
-<?php 
+<?php
+//create connection  
 	
-	$db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
+    $db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
+
+    //check connection
+    
+    if (!$db) {
+        die("Connection failed: " . mysqli_connect_error());
+    } else {
+        echo "connection with input patients backend is successful!";
+    }
 
 	// initialize variables
 	$EmployeeID = "";
@@ -16,21 +25,22 @@
     $marital_status="";
     $update=false;
 
+    //grab data from the update button 
+
     if (isset($_POST['update'])) {
        
-         $EmployeeID = $REQUEST['EmployeeID'];
-         $first_name = $_REQUEST['first_name'];
-         $last_name = $_REQUEST['last_name'];
-         $email = $_REQUEST['email'];
-         $Gender= $_REQUEST['Gender'];
-         $DOB = $_REQUEST['DOB'];
-         $Positions = $_REQUEST['Positions'];
-         $empaddress = $_REQUEST['address'];
-         $phone_number = $_REQUEST['phone_number'];
-         $marital_status = $_REQUEST['marital_status'];
+         $EmployeeID = $_POST['EmployeeID'];
+         $first_name = $_POST['first_name'];
+         $last_name = $_POST['last_name'];
+         $email = $_POST['email'];
+         $Gender= $_POST['Gender'];
+         $DOB = $_POST['DOB'];
+         $Positions = $_POST['Positions'];
+         $empaddress = $_POST['address'];
+         $phone_number = $_POST['phone_number'];
+         $marital_status = $_POST['marital_status'];
 
-
-
+//write query
 
  
   $sql= "UPDATE employees SET first_name='".$first_name."', last_name = '".$last_name."', email ='". $email."',Gender = '".$Gender."', DOB = '".$DOB."',Positions = '".$Positions."',empaddress = '".$empaddress."',phone_number = '".$phone_number."', marital_status='".$marital_status."' WHERE EmployeeID='".$EmployeeID."'";
@@ -47,23 +57,30 @@
 
 
 	if (isset($_POST['save'])) {
-		$EmployeeID = $REQUEST['EmployeeID'];
-         $first_name = $_REQUEST['first_name'];
-         $last_name = $_REQUEST['last_name'];
-         $email = $_REQUEST['email'];
-         $Gender= $_REQUEST['Gender'];
-         $DOB = $_REQUEST['DOB'];
-         $Positions = $_REQUEST['Positions'];
-         $empaddress = $_REQUEST['address'];
-         $phone_number = $_REQUEST['phone_number'];
-         $marital_status = $_REQUEST['marital status'];
+		$EmployeeID = $_POST['EmployeeID'];
+         $first_name = $_POST['first_name'];
+         $last_name = $_POST['last_name'];
+         $email = $_POST['email'];
+         $Gender= $_POST['Gender'];
+         $DOB = $_POST['DOB'];
+         $Positions = $_POST['Positions'];
+         $empaddress = $_POST['empaddress'];
+         $phone_number = $_POST['phone_number'];
+         $marital_status = $_POST['marital_status'];
 
 
 
 
-		mysqli_query($db, "INSERT INTO employees (EmployeeID, first_name,last_name, email, Gender, DOB, Positions,empaddress,phone_number, ,marital_status,) VALUES ('$EmployeeID','$first_name','$last_name','$email','$Gender',''$DOB','$Positions',$empaddress',''$phone_number',$marital_status')"); 
-		$_SESSION['message'] = "Information Saved!"; 
-		header('location: employees.php');
+		$sql="INSERT INTO employees (EmployeeID, first_name,last_name, email, Gender, DOB, Positions, empaddress, phone_number, marital_status) VALUES ('$EmployeeID','$first_name','$last_name','$email','$Gender','$DOB','$Positions','$empaddress','$phone_number','$marital_status')"; 
+        $results = mysqli_query($db, $sql);
+
+    //verify results and display appropriate message
+    if ($results) {
+        echo "registered successfully";
+        header('location: input_employees.php?edit.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
     }
 
   

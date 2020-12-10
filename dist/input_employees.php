@@ -18,7 +18,7 @@ if (isset($_GET['edit'])) {
     $Gender = $n['Gender'];
     $DOB = $n['DOB'];
     $Positions = $n['Positions'];
-    $address = $n['address'];
+    $empaddress = $n['empaddress'];
     $phone_number = $n['phone_number'];
     $marital_status = $n['marital_status'];
 
@@ -155,7 +155,7 @@ if (isset($_GET['edit'])) {
                                 <?php echo $row['Positions']; ?>
                             <td>
 
-                                <?php echo $row['address']; ?>
+                                <?php echo $row['empaddress']; ?>
 
                             </td>
                             <td>
