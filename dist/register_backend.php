@@ -78,7 +78,7 @@ if (isset($_SESSION['message'])){
 		
 
 }
-header('location: login_frontend.php');
+header('location: index.php');
 
 
 

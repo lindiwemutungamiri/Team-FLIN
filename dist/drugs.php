@@ -46,7 +46,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="main_dashboard.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Main Dashboard
                         </a>
@@ -72,10 +72,7 @@
                             Register Users
                         </a>
 
-                        <a class="nav-link" href="index.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a>
+                       
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -100,6 +97,7 @@
                                     Payable Drugs
                                 </div>
                                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                
                             </div>
                         </div>
                         <div class="col-xl-6">

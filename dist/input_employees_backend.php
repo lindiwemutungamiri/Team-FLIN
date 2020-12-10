@@ -9,7 +9,7 @@
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
     } else {
-        echo "connection with input patients backend is successful!";
+        echo "";
     }
 
 	// initialize variables
@@ -77,7 +77,7 @@
     //verify results and display appropriate message
     if ($results) {
         echo "registered successfully";
-        header('location: input_employees.php?edit.php');
+        header('location: employees.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }

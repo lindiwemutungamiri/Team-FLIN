@@ -6,7 +6,7 @@ $db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
 } else {
-    echo "connection with input patients backend is successful!";
+    echo "!";
 } // initialize variables
 $PatientID = "";
 $first_name = "";
@@ -65,7 +65,7 @@ if (isset($_POST['save'])) {
     //verify results and display appropriate message
     if ($results) {
         echo "registered successfully";
-        header('location: input_patients.php?edit.php');
+        header('location: input_patients.php?.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }

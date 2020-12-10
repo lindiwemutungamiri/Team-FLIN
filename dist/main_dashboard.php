@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">Nyika Clinic</a>
@@ -54,6 +55,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 
                         </div>
+
                         <div class="sb-sidenav-menu-heading">Clinic Data</div>
                         <a class="nav-link" href="drugs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -78,23 +80,25 @@
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
                     lindiwemutungamiri
+
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Patients Dashboard</h1>
+                    <h1 class="mt-4">Main Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Patients Dashboard</li>
+                        <li class="breadcrumb-item active">Main Dashboard</li>
                     </ol>
+
 
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area mr-1"></i>
-                                    Female Patients
+                                    Payable Drugs
                                 </div>
                                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>
@@ -103,7 +107,7 @@
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-bar mr-1"></i>
-                                    Male Patients
+                                    Non Payable Drugs
                                 </div>
                                 <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                             </div>
@@ -112,32 +116,12 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Patients Table
+                            Welcome Back! These are the available drugs  whose number is less than 5000, you might want to order more
                         </div>
-                        <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "nyikaclinic";
+                      
 
-                        //create connection
 
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        $sqll = "SELECT * FROM patients";
-                        if (mysqli_query($conn, $sqll)) {
-                            echo "";
-                        } else {
 
-                            echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
-                        }
-                        $result = mysqli_query($conn, $sqll);
-                        if (mysqli_num_rows($result) > 0) {
-                            //output data of each row
-                            while ($row = mysqli_fetch_assoc($result)) {
-                            }
-                        }
-
-                        ?>
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -145,21 +129,20 @@
                                     <thead>
                                         <tr>
 
-                                            <th>PatientID</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Gender</th>
-                                            <th>DOB</th>
-                                            <th>Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Marital Status</th>
-                                            <th colspan="2">Actions </th>
+
+                                            <th>Drug ID</th>
+                                            <th>Drug Name</th>
+                                            <th>Number Available</th>
+                                            <th>Drug Type</th>
+
                                         </tr>
                                     </thead>
 
                                     </thead>
                                     <tfoot>
                                         <?php
+
+                                        //query to display the doctors and nurses in the hospital 
 
                                         $servername = "localhost";
 
@@ -173,7 +156,7 @@
 
                                         $conn = new mysqli($servername, $username, $password, $dbname);
 
-                                        $sql = 'SELECT * from patients';
+                                        $sql = "SELECT DrugID, drug_name,number_available, drug_type FROM drugs WHERE number_available <5000 ";
 
                                         if (mysqli_query($conn, $sql)) {
 
@@ -199,55 +182,26 @@
 
                                                         <th>
 
-                                                            <?php echo $row['PatientID']; ?>
+                                                            <?php echo $row['DrugID']; ?>
 
                                                         </th>
 
                                                         <td>
 
-                                                            <?php echo $row['first_name']; ?>
+                                                            <?php echo $row['drug_name']; ?>
 
                                                         </td>
 
                                                         <td>
 
-                                                            <?php echo $row['last_name']; ?>
+                                                            <?php echo $row['number_available']; ?>
 
                                                         </td>
 
                                                         <td>
 
-                                                            <?php echo $row['Gender']; ?>
+                                                            <?php echo $row['drug_type']; ?>
 
-                                                        </td>
-
-                                                        <td>
-
-                                                            <?php echo $row['DOB']; ?>
-
-                                                        </td>
-                                                        <td>
-
-                                                            <?php echo $row['p_address']; ?>
-
-                                                        </td>
-                                                        <td>
-
-                                                            <?php echo $row['phone_number']; ?>
-
-                                                        </td>
-                                                        <td>
-                                                            <?php echo $row['marital_status']; ?>
-                                                        </td>
-
-                                                        <td>
-                                                            <a href="input_patients.php?edit=<?php echo $row['PatientID']; ?>" class="edit_btn">Edit</a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="input_patients.php?del=<?php echo $row['PatientID']; ?>" class="del_btn">Delete</a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="input_patients.php?save=<?php echo $row['PatientID']; ?>" class="edit_btn">Add</a>
                                                         </td>
 
 
@@ -268,10 +222,270 @@
 
 
                                 </table>
+
                             </div>
+
+
+
                         </div>
-                    </div>
-                </div>
+                                    </div>
+                                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            And these are all the doctors and nurses in the clinic
+                        </div>
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "nyikaclinic";
+
+                        //create connection
+
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        $sqll = "SELECT EmployeeID FROM employees WHERE Positions ='nurse' AND Positions = 'doctor'";
+                        if (mysqli_query($conn, $sqll)) {
+                            echo "";
+                        } else {
+
+                            echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
+                        }
+                        $result = mysqli_query($conn, $sqll);
+                        if (mysqli_num_rows($result) > 0) {
+                            //output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            }
+                        }
+
+                        ?>
+
+
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th>EmployeeID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Positions</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    </thead>
+                                    <tfoot>
+                                        <?php
+
+                                        //query to display the doctors and nurses in the hospital 
+
+                                        $servername = "localhost";
+
+                                        $username = "root";
+
+                                        $password = "";
+
+                                        $dbname = "nyikaclinic";
+
+                                        // Create connection
+
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                        $sql = "SELECT EmployeeID, first_name,last_name,Positions from employees WHERE Positions ='nurse' OR Positions = 'doctor'";
+
+                                        if (mysqli_query($conn, $sql)) {
+
+                                            echo "!";
+                                        } else {
+
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+
+                                        $count = 1;
+
+                                        $result = mysqli_query($conn, $sql);
+
+                                        if (mysqli_num_rows($result) > 0) {
+
+                                            // output data of each row
+
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <th>
+
+                                                            <?php echo $row['EmployeeID']; ?>
+
+                                                        </th>
+
+                                                        <td>
+
+                                                            <?php echo $row['first_name']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['last_name']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['Positions']; ?>
+
+                                                        </td>
+
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                        <?php
+
+                                                $count++;
+                                            }
+                                        } else {
+
+                                            echo '0 results';
+                                        }
+
+                                        ?>
+
+
+                                </table>
+
+                            </div>
+
+
+
+                        </div>
+                                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Also, here are the patients, the bills they paid for particular drugs and the accountant who sold the drugs
+                        </div>
+                       
+
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th>Drug Price in USD</th>
+                                            <th>Drug Amount</th>
+                                            <th>Patient ID</th>
+                                            <th>Employee ID</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    </thead>
+                                    <tfoot>
+                                        <?php
+
+                                        //query to display the doctors and nurses in the hospital 
+
+                                        $servername = "localhost";
+
+                                        $username = "root";
+
+                                        $password = "";
+
+                                        $dbname = "nyikaclinic";
+
+                                        // Create connection
+
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                        $sql = "SELECT drug_price, drug_amount,PatientID,EmployeeID from bills WHERE EmployeeID =10";
+
+                                        if (mysqli_query($conn, $sql)) {
+
+                                            echo "!";
+                                        } else {
+
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+
+                                        $count = 1;
+
+                                        $result = mysqli_query($conn, $sql);
+
+                                        if (mysqli_num_rows($result) > 0) {
+
+                                            // output data of each row
+
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <th>
+
+                                                            <?php echo $row['drug_price']; ?>
+
+                                                        </th>
+
+                                                        <td>
+
+                                                            <?php echo $row['drug_amount']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['PatientID']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['EmployeeID']; ?>
+
+                                                        </td>
+
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                        <?php
+
+                                                $count++;
+                                            }
+                                        } else {
+
+                                            echo '0 results';
+                                        }
+
+                                        ?>
+
+
+                                </table>
+
+                            </div>
+
+
+
+                        </div>
+                                    </div>
+                   
+                   
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
