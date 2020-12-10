@@ -86,6 +86,7 @@
   
 
     if (isset($_GET['del'])) {
+       
         $EmployeeID = $_GET['del'];
         mysqli_query($db, "DELETE FROM employees WHERE EmployeeID=$EmployeeID");
         $_SESSION['message'] = "Information Deleted"; 

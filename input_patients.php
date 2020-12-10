@@ -162,7 +162,7 @@
                                                             <a href="input_patients.php?edit=<?php echo $row['PatientID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="input_patients.php?del=<?php echo $row['PatientID']; ?>" class="del_btn">Delete</a>
+                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="input_patients.php?del=<?php echo $row['PatientID']; ?>" class="del_btn">Delete</a>
                                                         </td>
 
                                                     </tr>

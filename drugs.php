@@ -220,7 +220,7 @@
                                                             <a href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
+                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
                                                         </td>
                                                         <td>
                                                             <a href="inputdrugs.php?save=<?php echo $row['DrugID']; ?>" class="edit_btn">Add</a>

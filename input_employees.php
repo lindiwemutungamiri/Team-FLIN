@@ -170,7 +170,7 @@ if (isset($_GET['edit'])) {
                                 <a id="edit" href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                             </td>
                             <td>
-                                <a href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                <a onClick = "return confirm('Are you sure you want to delete this?')" href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                             </td>
                             
 
