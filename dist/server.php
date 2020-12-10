@@ -1,19 +1,15 @@
 <?php
+$dbserver= "localhost";
+$dbuser= "root";
+$dbpassword = "";
+$db = "nyikaclinic";
 
-session_start();
+//connect to database
+$conn = mysqli_connect($dbserver, $dbuser, $dbpassword, $db);
 
-// initializing variables
-
-$username = "";
-
-$email    = "";
-
-$errors = array();
-
-// connect to the database
-
-$db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
-
-if(!$db){
-    die('Connection failed: ' . mysqli_connect_error());
+//if condition to return message if connection failed
+if (!$conn) {
+    echo "Connection failed!";
 }
+?>
+

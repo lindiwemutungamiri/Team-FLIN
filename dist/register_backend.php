@@ -8,9 +8,10 @@ $username = $_POST['username'];
 
 $email = $_POST['email'];
 
-$password_1 = $_POST['password_1'];
-
+$passverify = $_POST['password_1'];
 $password_2 = $_POST['password_2'];
+
+$password_1 = md5($passverify);
 
 
 $data=$_POST;
@@ -23,7 +24,11 @@ if (empty($data['username']) ||
         die('Please fill all required fields!');
 }
 if ($data['password_1'] !== $data['password_2']) {
-    die('Password and Confirm password should match!');   
+
+    
+    header("Location: register_frontend.php?error=Passwords must match");
+		        die(); 
+
  }
     
    
@@ -41,18 +46,22 @@ if ($user) { // if user exists
 
 if ($user['username'] === $username) {
 
-  die('username already exists'); 
+ 
+				header("Location: register_frontend.php?error=Username already exists");
+		        exit();
+			
 
 }
 
 if ($user['email'] === $email) {
 
-die ('email already exists!');
+  
+    header("Location: register_frontend.php?error=Email already exists");
+        exit();
+  
 
-}
-
-}
-
+}else{
+  
 // Finally, register user if there are no errors in the form
 
 
@@ -60,9 +69,9 @@ $password = md5($password_1);//encrypt the password before saving in the databas
 
 echo $password ;
 
-$query = "INSERT INTO users(username, email, password)
+$query = "INSERT INTO users(username, email, user_password)
 
-VALUES('$username', '$email', '$password')";
+VALUES('$username', '$email', '$password_1')";
 
 mysqli_query($db, $query);
 
@@ -78,11 +87,16 @@ if (isset($_SESSION['message'])){
 		
 
 }
+echo " <script>alert ('Your information has been submitted')</script>";
 header('location: index.php');
+
+}
+
+}
+
 
 
 
 }
 
-// ...
 ?>
