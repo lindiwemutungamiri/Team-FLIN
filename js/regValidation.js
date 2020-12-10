@@ -48,11 +48,8 @@ function ValidateRegForm() {
 
     email = document.regform.email;
     var emailregx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ //email regular expression
-
-  
     
-
-    password_1= document.regform.password_1;
+    user_password= document.regform.user_password;
     //password must have atleast one digit, one lowercase, one uppercase, one special character and atleast 8 words in lenght
     var passwordregx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
@@ -84,9 +81,9 @@ function ValidateRegForm() {
         email.focus();
         return  false;
     }
-    if(password_1.value == ""){
+    if(user_password.value == ""){
         alert("Please Enter your password. Password cannot be blank");
-        password_1.focus();
+        user_password.focus();
         return  false;
     }
    
@@ -101,8 +98,8 @@ function ValidateRegForm() {
         return  false;
     }
    
-    if(!passwordregx.test(password_2.value)){
-        alert(" //password must have atleast one digit, one lowercase, one uppercase, one special character and atleast 8 words in length");
+    if(user_password.value != password_2.value)){
+        alert(" //passwords must match!");
         password_2.focus();
         return false;
     }

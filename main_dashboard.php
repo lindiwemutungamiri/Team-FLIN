@@ -36,7 +36,8 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
-                    <a class="dropdown-item" href="login_frontend.php">Logout</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
                 </div>
             </li>
         </ul>
@@ -89,36 +90,17 @@
                 <div class="container-fluid">
                     <h1 class="mt-4">Main Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Main Dashboard</li>
+                        <li class="breadcrumb-item active"></li>
                     </ol>
 
 
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-area mr-1"></i>
-                                    Payable Drugs
-                                </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-bar mr-1"></i>
-                                    Non Payable Drugs
-                                </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Welcome Back! These are the available drugs  whose number is less than 5000, you might want to order more
+                            Welcome Back! These are the available drugs whose number is less than 5000, you might want to order more
                         </div>
-                      
+
 
 
 
@@ -228,8 +210,8 @@
 
 
                         </div>
-                                    </div>
-                                    <div class="card mb-4">
+                    </div>
+                    <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
                             And these are all the doctors and nurses in the clinic
@@ -367,14 +349,14 @@
 
 
                         </div>
-                                    </div>
+                    </div>
 
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
                             Also, here are the patients, the bills they paid for particular drugs and the accountant who sold the drugs
                         </div>
-                       
+
 
 
 
@@ -483,9 +465,9 @@
 
 
                         </div>
-                                    </div>
-                   
-                   
+                    </div>
+
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
