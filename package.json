@@ -39,7 +39,7 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-sb-admin.git"
     },
     "dependencies": {
-        "bootstrap": "4.5.3"
+        "bootstrap": "^3.4.1"
     },
     "devDependencies": {
         "autoprefixer": "10.0.1",

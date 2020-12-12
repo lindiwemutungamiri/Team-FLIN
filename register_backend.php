@@ -67,13 +67,13 @@ include('server.php');
           <script>
           window.onload = function() {
             alert("Registration Successful");
-            location.href = "index.php";  
+            location.href = "login.php";  
           }
           </script>
           ';
 
         } else{ 
-            header("Location: register_frontend.php?error=Failed to register!");
+            header("Location: register_frontend.php?error=Username or Email already exists!");
             exit();
         }
       $conn->close();

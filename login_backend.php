@@ -54,12 +54,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		        exit();
 			}
 		} else {
-			header("Location: index.php?error=Failed to retrieve");
+			header("Location: login.php?error=Failed to retrieve");
 		        exit();
 			}
 		}
 	}else{
-		header("Location: index.php");
+		header("Location: login.php");
 		exit();
 	}
 

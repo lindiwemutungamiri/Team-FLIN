@@ -29,7 +29,7 @@
                   <h3 class="text-center font-weight-light my-4">Create An Account</h3>
                 </div>
                 <div class="card-body">
-                  <form action="register_backend.php" method="POST" name="vform" onsubmit="return (ValidateRegForm());">
+                  <form action="register_backend.php" method="POST" id = "FormID" name="RegForm" onsubmit="return (ValidateRegForm());">
                     <?php if (isset($_GET['error'])) { ?>
                       <p class="alert alert-danger"><?php echo $_GET['error']; ?></p>
                     <?php } ?>
