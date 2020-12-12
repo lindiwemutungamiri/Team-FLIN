@@ -1,4 +1,7 @@
 <?php
+//start session and connect database
+session_start(); 
+include('server.php');
 /* so you don't connect to db unnecessarily with empty inputs, check whether user supplied all input*/
 //if(isset($_GET['fname']) || isset($_GET['lname']) || isset($_GET['email']) || isset($_GET['class'])) {
 
@@ -31,6 +34,17 @@
 
   $user_password = md5($password_1);
   //validation to reject empty filled form
+  //validation to reject empty filled form
+	if (empty($username)) {
+		header("Location: register_frontend.php?error=UserName is required");
+		exit();
+    }
+     else if(empty($email)) {
+        header("Location: register_frontend.php?error=Email is required");
+		exit();
+
+	// select query in database if form was filled 
+    } 
 	if (empty($user_password)) {
 		header("Location: register_frontend.php?error=Password is required");
 		exit();
@@ -59,7 +73,7 @@
           ';
 
         } else{ 
-            header("Location: register_frontend.php?error=Failed to reister");
+            header("Location: register_frontend.php?error=Failed to register!");
             exit();
         }
       $conn->close();

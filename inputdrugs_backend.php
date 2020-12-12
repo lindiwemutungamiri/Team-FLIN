@@ -1,15 +1,18 @@
 
-
-
 <?php 
-	
-    $db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
-    //check connection
+$dbserver= "localhost";
+$dbuser= "root";
+$dbpassword = "";
+$db_name = "nyikaclinic";
+
+//connect to database
+$db = mysqli_connect($dbserver, $dbuser, $dbpassword, $db_name);
+
+//if condition to return message if connection failed
 if (!$db) {
-    die("Connection failed: " . mysqli_connect_error());
-} else {
-    echo "";
-} 
+    echo "Connection failed!";
+}
+	
 
 	// initialize variables
 	$DrugID = "";
@@ -43,7 +46,7 @@ if (!$db) {
                 echo "Error. Wasnt able to update $sql. ". mysqli_error($db);
             }
            
-             header('location: inputdrugs.php?edit.php');
+             header('location: drugs.php?edit.php');
          }
     }
 
@@ -74,10 +77,23 @@ if (!$db) {
   
 
     if (isset($_GET['del'])) {
-        $DrugID = $_GET['del'];
-        mysqli_query($db, "DELETE FROM drugs WHERE DrugID=$DrugID");
-        $_SESSION['message'] = "Information Deleted"; 
-        header('location: drugs.php');
+        $DrugID= $_GET['del'];
+        $update = false;
+        $sqlqerry = "DELETE FROM drugs WHERE DrugID = '$DrugID' ";    
+    $del = mysqli_query($db, $sqlqerry); // delete query
+
+    if($del) {
+        echo 'success';
+    mysqli_close($db_name); // Close connection
+    header("location:drugs.php"); // redirects to all records page
+        exit();	
+    } else {
+        echo "Error: " . $sqlqerry . "<br>" . mysqli_error($db);        die();
     }
+}
+
+
+ 
+    ?>
 
    

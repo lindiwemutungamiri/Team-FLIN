@@ -1,26 +1,25 @@
 
 
 //retrieving  values from the form
-const thisform = document.getElementById('formid'); //declaring a constant called theform
+const myform = document.getElementById('FormID'); //declaring a constant called myform
 
-
+//retrieving values from the form 
 function submitData() {
-    var username = thisform.elements['username'].value;
-
-
-
-    var email = thisform.elements['email'].value;
-    var password_1 = thisform.elements['password_1'].value;
-    var password_2 =thisform.elements['password_2'].value;
+    var username = myform.elements['username'].value;
+    var email = myform.elements['email'].value;
+    var user_password = myform.elements['user_password'].value;
+    var password_2 =myform.elements['password_2'].value;
     
   
 
     //storing into local storage 
+
+
     localStorage.setItem("input1", username);
     localStorage.setItem("input2", email);
  
-    localStorage.setItem("input4", password_1);
-    localStorage.setItem("input5", password_2);
+    localStorage.setItem("input3", user_password);
+    localStorage.setItem("input4", password_2);
 
     
 
@@ -28,12 +27,13 @@ function submitData() {
 }
 
 
+
 //retrieving from local storage and sending to .phps's ids shown by tekvalues 
     document.getElementById("tek1").innerHTML=localStorage.getItem("input1");
     document.getElementById("tek2").innerHTML=localStorage.getItem("input2");
  
+    document.getElementById("tek3").innerHTML=localStorage.getItem("input3");
     document.getElementById("tek4").innerHTML=localStorage.getItem("input4");
-    document.getElementById("tek5").innerHTML=localStorage.getItem("input5");
 
 
 
@@ -43,17 +43,17 @@ function submitData() {
 function ValidateRegForm() {
     
 
-    username= document.regform.username;  //getting the first name and declaring it into variable firstnem
+    username= document.RegForm.username;  //getting the first name and declaring it into variable firstnem
     var txtregx = /^[a-zA-Z]+$/i;  //declaring a text regular expression
 
-    email = document.regform.email;
+    email = document.RegForm.email;
     var emailregx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ //email regular expression
     
-    user_password= document.regform.user_password;
+    user_password= document.RegForm.user_password;
     //password must have atleast one digit, one lowercase, one uppercase, one special character and atleast 8 words in lenght
     var passwordregx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
-    password_2= document.regform.password_2;
+    password_2= document.RegForm.password_2;
     //password must have atleast one digit, one lowercase, one uppercase, one special character and atleast 8 words in lenght
     var passwordregx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
@@ -98,7 +98,7 @@ function ValidateRegForm() {
         return  false;
     }
    
-    if(user_password.value != password_2.value)){
+    if(user_password.value != password_2.value){
         alert(" //passwords must match!");
         password_2.focus();
         return false;

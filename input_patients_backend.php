@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
         echo "Error. Wasnt able to update $sql. " . mysqli_error($db);
     }
 
-    header('location: input_patients.php?edit.php');
+    header('location: patients.php');
 }
 
 
