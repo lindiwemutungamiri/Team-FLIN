@@ -57,15 +57,15 @@
                         <div class="sb-sidenav-menu-heading">Clinic Data</div>
                         <a class="nav-link" href="drugs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Drugs
+                            View Drugs
                         </a>
                         <a class="nav-link" href="employees.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Employees
+                            View Employees
                         </a>
                         <a class="nav-link" href="patients.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Patients
+                            View Patients
                         </a>
                         <a class="nav-link" href="register_frontend.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

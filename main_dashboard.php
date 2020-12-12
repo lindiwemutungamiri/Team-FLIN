@@ -60,15 +60,15 @@
                         <div class="sb-sidenav-menu-heading">Clinic Data</div>
                         <a class="nav-link" href="drugs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Drugs
+                            View Drugs
                         </a>
                         <a class="nav-link" href="employees.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Employees
+                            View Employees
                         </a>
                         <a class="nav-link" href="patients.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Patients
+                            View Patients
                         </a>
                         <a class="nav-link" href="register_frontend.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -78,11 +78,7 @@
 
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    lindiwemutungamiri
-
-                </div>
+                
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -350,123 +346,6 @@
 
                         </div>
                     </div>
-
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            Also, here are the patients, the bills they paid for particular drugs and the accountant who sold the drugs
-                        </div>
-
-
-
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-
-
-                                            <th>Drug Price in USD</th>
-                                            <th>Drug Amount</th>
-                                            <th>Patient ID</th>
-                                            <th>Employee ID</th>
-
-                                        </tr>
-                                    </thead>
-
-                                    </thead>
-                                    <tfoot>
-                                        <?php
-
-                                        //query to display the doctors and nurses in the hospital 
-
-                                        $servername = "localhost";
-
-                                        $username = "root";
-
-                                        $password = "";
-
-                                        $dbname = "nyikaclinic";
-
-                                        // Create connection
-
-                                        $conn = new mysqli($servername, $username, $password, $dbname);
-
-                                        $sql = "SELECT drug_price, drug_amount,PatientID,EmployeeID from bills WHERE EmployeeID =10";
-
-                                        if (mysqli_query($conn, $sql)) {
-
-                                            echo "!";
-                                        } else {
-
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-
-                                        $count = 1;
-
-                                        $result = mysqli_query($conn, $sql);
-
-                                        if (mysqli_num_rows($result) > 0) {
-
-                                            // output data of each row
-
-                                            while ($row = mysqli_fetch_assoc($result)) { ?>
-
-                                                <tbody>
-
-                                                    <tr>
-
-                                                        <th>
-
-                                                            <?php echo $row['drug_price']; ?>
-
-                                                        </th>
-
-                                                        <td>
-
-                                                            <?php echo $row['drug_amount']; ?>
-
-                                                        </td>
-
-                                                        <td>
-
-                                                            <?php echo $row['PatientID']; ?>
-
-                                                        </td>
-
-                                                        <td>
-
-                                                            <?php echo $row['EmployeeID']; ?>
-
-                                                        </td>
-
-
-                                                    </tr>
-
-                                                </tbody>
-
-                                        <?php
-
-                                                $count++;
-                                            }
-                                        } else {
-
-                                            echo '0 results';
-                                        }
-
-                                        ?>
-
-
-                                </table>
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
 
             </main>
             <footer class="py-4 bg-light mt-auto">

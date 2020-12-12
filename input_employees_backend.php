@@ -2,15 +2,18 @@
 <?php
 //create connection  
 	
-    $db = mysqli_connect('localhost', 'root', '', 'nyikaclinic');
+$dbserver= "localhost";
+$dbuser= "root";
+$dbpassword = "";
+$db_name = "nyikaclinic";
 
-    //check connection
-    
-    if (!$db) {
-        die("Connection failed: " . mysqli_connect_error());
-    } else {
-        echo "";
-    }
+//connect to database
+$db = mysqli_connect($dbserver, $dbuser, $dbpassword, $db_name);
+
+//if condition to return message if connection failed
+if (!$db) {
+    echo "Connection failed!";
+}
 
 	// initialize variables
 	$EmployeeID = "";
@@ -36,7 +39,7 @@
          $Gender= $_POST['Gender'];
          $DOB = $_POST['DOB'];
          $Positions = $_POST['Positions'];
-         $empaddress = $_POST['address'];
+         $empaddress = $_POST['empaddress'];
          $phone_number = $_POST['phone_number'];
          $marital_status = $_POST['marital_status'];
 
@@ -85,11 +88,21 @@
 
   
 
+   
     if (isset($_GET['del'])) {
-       
-        $EmployeeID = $_GET['del'];
-        mysqli_query($db, "DELETE FROM employees WHERE EmployeeID=$EmployeeID");
-        $_SESSION['message'] = "Information Deleted"; 
-        header('location: employees.php');
+        $EmployeeID= $_GET['del'];
+        $update = false;
+        $sqlqerry = "DELETE FROM employees WHERE EmployeeID = '$EmployeeID' ";    
+    $del = mysqli_query($db, $sqlqerry); // delete query
+
+    if($del) {
+        echo 'success';
+    mysqli_close($db_name); // Close connection
+    header("location:employees.php"); // redirects to all records page
+        exit();	
+    } else {
+        echo "Error: " . $sqlqerry . "<br>" . mysqli_error($db);        die();
     }
+}
+?>
 
