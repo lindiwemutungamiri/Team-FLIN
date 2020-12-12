@@ -234,13 +234,13 @@
                                                         <td>
                                                            
                                                         
-                                                            <a href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
+                                                            <a href="employees_form.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="employees_form.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                                                         </td>
                                                         <td>
-                                                            <a href="input_employees.php?save=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Add</a>
+                                                            <a href="employees_form.php?save=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Add</a>
                                                         </td>
                                                         
 

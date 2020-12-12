@@ -54,7 +54,7 @@ if (!$db) {
             echo "Error. Wasnt able to update $sql. ". mysqli_error($db);
         }
        
-         header('location: input_employees.php?edit.php');
+         header('location: employees_form.php?edit.php');
      }
 
 

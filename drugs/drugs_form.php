@@ -1,5 +1,5 @@
 <?php  include('../server/server.php'); ?>
-<?php include('inputdrugs_backend.php');?>
+<?php include('drugsForm_backend.php');?>
 
 
 <?php 
@@ -141,10 +141,10 @@
 														
 														
                                                         <td>
-                                                            <a id= "edit" href="inputdrugs.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
+                                                            <a id= "edit" href="drugs_form.php?edit=<?php echo $row['DrugID']; ?>" class="edit_btn">Edit</a>
                                                         </td>
                                                         <td>
-                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="inputdrugs.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
+                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="drugs_form.php?del=<?php echo $row['DrugID']; ?>" class="del_btn">Delete</a>
                                                         </td>
 
                                                     </tr>
@@ -165,7 +165,7 @@
 
                                 </table>
                                 
-<form method="post" action="inputdrugs_backend.php" >
+<form method="post" action="drugsForm_backendbackend.php" >
 
 <div class="card-header"><h3 class="text-center font-weight-light my-4"> Drugs</h3></div>
 

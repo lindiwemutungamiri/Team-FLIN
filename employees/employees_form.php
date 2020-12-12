@@ -1,5 +1,5 @@
 <?php include('../server/server.php'); ?>
-<?php include('input_employees_backend.php'); ?>
+<?php include('employeesForm_backend.php'); ?>
 
 
 <?php
@@ -167,10 +167,10 @@ if (isset($_GET['edit'])) {
                                 <?php echo $row['marital_status']; ?>
                             </td>
                             <td>
-                                <a id="edit" href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
+                                <a id="edit" href="employees_form.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                             </td>
                             <td>
-                                <a onClick = "return confirm('Are you sure you want to delete this?')" href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                <a onClick = "return confirm('Are you sure you want to delete this?')" href="employees_form.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                             </td>
                             
 
@@ -194,7 +194,7 @@ if (isset($_GET['edit'])) {
 
     </table>
 
-    <form method="post" action="input_employees_backend.php">
+    <form method="post" action="employeesForm_backend.php">
 
         <div class="card-header">
             <h3 class="text-center font-weight-light my-4"> Employees</h3>
