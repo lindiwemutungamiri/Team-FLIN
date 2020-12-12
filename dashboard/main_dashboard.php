@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Nyika Clinic Admin Dashboard</title>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -16,9 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">Nyika Clinic</a>
+        <a class="navbar-brand" href="main_dashboard.php">Nyika Clinic</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -35,7 +36,8 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
-                    <a class="dropdown-item" href="login_frontend.php">Logout</a>
+                    <a class="dropdown-item" href="../index.html">Logout</a>
+                </div>
                 </div>
             </li>
         </ul>
@@ -54,20 +56,21 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 
                         </div>
+
                         <div class="sb-sidenav-menu-heading">Clinic Data</div>
-                        <a class="nav-link" href="drugs.php">
+                        <a class="nav-link" href="../drugs/drugs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             View Drugs
                         </a>
-                        <a class="nav-link" href="employees.php">
+                        <a class="nav-link" href="../employees/employees.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                           View Employees
+                            View Employees
                         </a>
-                        <a class="nav-link" href="patients.php">
+                        <a class="nav-link" href="../patients/patients.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             View Patients
                         </a>
-                        <a class="nav-link" href="register_frontend.php">
+                        <a class="nav-link" href="../register/register_frontend.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Register Users
                         </a>
@@ -75,25 +78,139 @@
 
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    lindiwemutungamiri
-                </div>
+
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Employees Dashboard</h1>
+                    <h1 class="mt-4">Main Dashboard</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active"></li>
                     </ol>
 
-                 
+
+
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Employees Table
+                            Welcome Back! These are the available drugs whose number is less than 5000, you might want to order more
+                        </div>
+
+
+
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th>Drug ID</th>
+                                            <th>Drug Name</th>
+                                            <th>Number Available</th>
+                                            <th>Drug Type</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    </thead>
+                                    <tfoot>
+                                        <?php
+
+                                        //query to display the doctors and nurses in the hospital 
+
+                                        $servername = "localhost";
+
+                                        $username = "root";
+
+                                        $password = "";
+
+                                        $dbname = "nyikaclinic";
+
+                                        // Create connection
+
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                        $sql = "SELECT DrugID, drug_name,number_available, drug_type FROM drugs WHERE number_available <5000 ";
+
+                                        if (mysqli_query($conn, $sql)) {
+
+                                            echo "!";
+                                        } else {
+
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+
+                                        $count = 1;
+
+                                        $result = mysqli_query($conn, $sql);
+
+                                        if (mysqli_num_rows($result) > 0) {
+
+                                            // output data of each row
+
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <th>
+
+                                                            <?php echo $row['DrugID']; ?>
+
+                                                        </th>
+
+                                                        <td>
+
+                                                            <?php echo $row['drug_name']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['number_available']; ?>
+
+                                                        </td>
+
+                                                        <td>
+
+                                                            <?php echo $row['drug_type']; ?>
+
+                                                        </td>
+
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                        <?php
+
+                                                $count++;
+                                            }
+                                        } else {
+
+                                            echo '0 results';
+                                        }
+
+                                        ?>
+
+
+                                </table>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            And these are all the doctors and nurses in the clinic
                         </div>
                         <?php
                         $servername = "localhost";
@@ -104,7 +221,7 @@
                         //create connection
 
                         $conn = new mysqli($servername, $username, $password, $dbname);
-                        $sqll = "SELECT * FROM employees";
+                        $sqll = "SELECT EmployeeID FROM employees WHERE Positions ='nurse' AND Positions = 'doctor'";
                         if (mysqli_query($conn, $sqll)) {
                             echo "";
                         } else {
@@ -120,32 +237,29 @@
 
                         ?>
 
+
+
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
 
+
                                             <th>EmployeeID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
-                                            <th>Email</th>
-                                            <th>Gender</th>
-                                            <th>DOB</th>
                                             <th>Positions</th>
-                                            <th>Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Marital Status</th>
-                                           
 
-                                            <th colspan="2">Actions </th>
-                                           
                                         </tr>
                                     </thead>
 
                                     </thead>
                                     <tfoot>
                                         <?php
+
+                                        //query to display the doctors and nurses in the hospital 
 
                                         $servername = "localhost";
 
@@ -159,7 +273,7 @@
 
                                         $conn = new mysqli($servername, $username, $password, $dbname);
 
-                                        $sql = 'SELECT * from employees';
+                                        $sql = "SELECT EmployeeID, first_name,last_name,Positions from employees WHERE Positions ='nurse' OR Positions = 'doctor'";
 
                                         if (mysqli_query($conn, $sql)) {
 
@@ -203,55 +317,12 @@
 
                                                         <td>
 
-                                                            <?php echo $row['email']; ?>
-
-                                                        </td>
-
-                                                        <td>
-
-                                                            <?php echo $row['Gender']; ?>
-
-                                                        </td>
-
-
-
-                                                        <td>
-
-                                                            <?php echo $row['DOB']; ?>
-
-                                                        </td>
-                                                        <td>
-
                                                             <?php echo $row['Positions']; ?>
-                                                        <td>
-
-                                                            <?php echo $row['empaddress']; ?>
 
                                                         </td>
-                                                        <td>
 
-                                                            <?php echo $row['phone_number']; ?>
-
-                                                        </td>
-                                                        <td>
-                                                            <?php echo $row['marital_status']; ?>
-                                                        </td>
-                                                        <td>
-                                                           
-                                                        
-                                                            <a href="input_employees.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
-                                                        </td>
-                                                        <td>
-                                                            <a onClick = "return confirm('Are you sure you want to delete this?')" href="input_employees.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="input_employees.php?save=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Add</a>
-                                                        </td>
-                                                        
 
                                                     </tr>
-
-
 
                                                 </tbody>
 
@@ -268,10 +339,14 @@
 
 
                                 </table>
+
                             </div>
+
+
+
                         </div>
                     </div>
-                </div>
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
@@ -289,13 +364,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/datatables-demo.js"></script>
+    <script src="../js/scripts.js"></script>
+
+
 </body>
 
 </html>

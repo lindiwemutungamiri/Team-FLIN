@@ -1,4 +1,4 @@
-<?php include('server.php'); ?>
+<?php include('../server/server.php'); ?>
 <?php include('input_employees_backend.php'); ?>
 
 
@@ -42,7 +42,7 @@ if (isset($_GET['edit'])) {
     <meta name="description" content="" />
     <meta name="author" content="" />
 	<title>Input Employees</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body class="sb-nav-fixed">

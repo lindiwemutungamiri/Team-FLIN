@@ -4,7 +4,7 @@
 
 //start session and connect database
 session_start(); 
-include('server.php'); 
+include('../server/server.php'); 
 
 
 
@@ -27,11 +27,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 	//validation to reject empty filled form
 	if (empty($username)) {
-		header("Location: index.php?error=UserName is required");
+		header("Location: login.php?error=UserName is required");
 		exit();
     }
      else if(empty($pass)) {
-        header("Location: index.php?error=Password is required");
+        header("Location: login.php?error=Password is required");
 		exit();
 
 	// select query in database if form was filled 
@@ -47,10 +47,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$row = mysqli_fetch_array($result);
 			if(is_array($row)) {
 				$_SESSION['username'] = $row['username'];
-            	header("Location: main_dashboard.php");
+            	header("Location: ../dashboard/main_dashboard.php");
 		        exit();
 			}else{
-				header("Location: index.php?error=Incorect Username or Password");
+				header("Location: login.php?error=Incorect Username or Password");
 		        exit();
 			}
 		} else {

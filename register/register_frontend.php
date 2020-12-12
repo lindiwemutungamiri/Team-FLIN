@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('../server/server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +9,11 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Nyika Clinic Register</title>
-  <link href="css/styles.css" rel="stylesheet" />
+  <link href="../css/styles.css" rel="stylesheet" />
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
 
 <body class="bg-dark">
@@ -110,10 +110,12 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/scripts.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/scripts.js"></script>
+  <script src="../js/regValidation.js"></script>
+
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
 </body>
