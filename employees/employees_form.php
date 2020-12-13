@@ -36,13 +36,13 @@ if (isset($_GET['edit'])) {
 <html lang="en">
 
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-	<title>Input Employees</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Input Employees</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body class="sb-nav-fixed">
@@ -170,9 +170,9 @@ if (isset($_GET['edit'])) {
                                 <a id="edit" href="employees_form.php?edit=<?php echo $row['EmployeeID']; ?>" class="edit_btn">Edit</a>
                             </td>
                             <td>
-                                <a onClick = "return confirm('Are you sure you want to delete this?')" href="employees_form.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
+                                <a onClick="return confirm('Are you sure you want to delete this?')" href="employees_form.php?del=<?php echo $row['EmployeeID']; ?>" class="del_btn">Delete</a>
                             </td>
-                            
+
 
                         </tr>
 
@@ -195,6 +195,10 @@ if (isset($_GET['edit'])) {
     </table>
 
     <form method="post" action="employeesForm_backend.php">
+    <?php if (isset($_GET['error'])) { ?>
+        <strong style="color: red;" class="alert alert-danger"><?php echo $_GET['error']; ?></strong>
+    <?php } ?>
+
 
         <div class="card-header">
             <h3 class="text-center font-weight-light my-4"> Employees</h3>
@@ -298,7 +302,7 @@ if (isset($_GET['edit'])) {
     </footer>
     </div>
     </div>
-  
+
 </body>
 
 </html>

@@ -61,7 +61,30 @@ if (!$db) {
         $drug_type = $_POST['drug_type'];
 
 
-
+        if (empty($DrugID)) {
+            header("Location: drugs_form.php?error=Drug ID is required!");
+            exit();
+        }
+        if (empty($drug_name)) {
+            header("Location: drugs_form.php?error=Drug name is required!");
+            exit();
+        }
+        if (empty($manufacturer)) {
+            header("Location: drugs_form.php?error= Please enter the name of the manufacturer!");
+            exit();
+        }
+        if (empty($number_available)) {
+            header("Location: drugs_form.php?error=Number available is required as a number!");
+            exit();
+        }
+        if (empty($payment_status)) {
+            header("Location: drugs_form.php?error=Payment status is required in small letters!");
+            exit();
+        }
+        if (empty($drug_type)) {
+            header("Location: drugs_form.php?error=Drug Type is required!");
+            exit();
+        }
 		$sql= "INSERT INTO drugs (DrugID, drug_name,manufacturer,number_available,payment_status,drug_type) VALUES ('$DrugID','$drug_name','$manufacturer','$number_available','$payment_status','$drug_type')"; 
         $results = mysqli_query($db, $sql);
         //verify results and display appropriate message

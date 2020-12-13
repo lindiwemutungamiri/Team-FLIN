@@ -55,6 +55,37 @@ if (isset($_POST['save'])) {
     $p_address = $_POST['p_address'];
     $phone_number = $_POST['phone_number'];
     $marital_status = $_POST['marital_status'];
+    
+	//validation to reject empty filled form
+	if (empty($PatientID)) {
+		header("Location: input_patients.php?error=Patient ID is required!");
+		exit();
+    }
+    
+	
+	//validation to reject empty filled form
+	if (empty($first_name)) {
+		header("Location: employees_form.php?error=First Name is required!");
+		exit();
+    }
+    
+	//validation to reject empty filled form
+	if (empty($last_name)) {
+		header("Location: input_patients.php?error=Last Name is required!");
+		exit();
+    }
+    
+	//validation to reject empty filled form
+	if (empty($address)) {
+		header("Location: input_patients.php?error=addressis required!");
+		exit();
+    }
+  
+    
+    if (empty($phone_number)) {
+		header("Location: input_patients.php?error=Phone number is required");
+		exit();
+    }
 
 
     //write query

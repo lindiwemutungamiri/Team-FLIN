@@ -32,7 +32,7 @@
 
                                     <form action="login_backend.php" method="POST" id="formID" name="thisform" onsubmit="return(ValidateForm());">
                                         `<?php if (isset($_GET['error'])) { ?>
-                                        <p class="alert alert-danger"><?php echo $_GET['error']; ?></p>
+                                        <strong class="alert alert-danger"><?php echo $_GET['error']; ?></strong>
                                     <?php } ?>
 
 

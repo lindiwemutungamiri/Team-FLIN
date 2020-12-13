@@ -60,18 +60,44 @@ if (!$db) {
 
 
 	if (isset($_POST['save'])) {
-		$EmployeeID = $_POST['EmployeeID'];
-         $first_name = $_POST['first_name'];
+        $EmployeeID = $_POST['EmployeeID'];
+        $first_name = $_POST['first_name'];
          $last_name = $_POST['last_name'];
          $email = $_POST['email'];
-         $Gender= $_POST['Gender'];
-         $DOB = $_POST['DOB'];
          $Positions = $_POST['Positions'];
-         $empaddress = $_POST['empaddress'];
-         $phone_number = $_POST['phone_number'];
-         $marital_status = $_POST['marital_status'];
+     
 
 
+	//validation to reject empty filled form
+	if (empty($EmployeeID)) {
+		header("Location: employees_form.php?error=Employee ID is required!");
+		exit();
+    }
+    
+	
+	//validation to reject empty filled form
+	if (empty($first_name)) {
+		header("Location: employees_form.php?error=First Name is required!");
+		exit();
+    }
+    
+	//validation to reject empty filled form
+	if (empty($last_name)) {
+		header("Location: employees_form.php?error=Last Name is required!");
+		exit();
+    }
+    
+	//validation to reject empty filled form
+	if (empty($email)) {
+		header("Location: employees_form.php?error=email is required");
+		exit();
+    }
+  
+    
+    if (empty($Positions)) {
+		header("Location: employees_form.php?error=Positions is required");
+		exit();
+    }
 
 
 		$sql="INSERT INTO employees (EmployeeID, first_name,last_name, email, Gender, DOB, Positions, empaddress, phone_number, marital_status) VALUES ('$EmployeeID','$first_name','$last_name','$email','$Gender','$DOB','$Positions','$empaddress','$phone_number','$marital_status')"; 

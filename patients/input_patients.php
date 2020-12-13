@@ -184,6 +184,9 @@ if (isset($_GET['edit'])) {
     </table>
 
     <form method="post" action="input_patients_backend.php">
+        <?php if (isset($_GET['error'])) { ?>
+            <strong style="color: red;" class="alert alert-danger"><?php echo $_GET['error']; ?></strong>
+        <?php } ?>
 
         <div class="card-header">
             <h3 class="text-center font-weight-light my-4"> Patients</h3>
