@@ -1,5 +1,6 @@
 <?php include('../server/server.php'); ?>
 <?php include('drugsForm_backend.php'); ?>
+<?php include('../errors/errors.php');?>
 
 
 <?php
