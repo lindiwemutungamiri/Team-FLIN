@@ -11,6 +11,7 @@ Being the only Health Care Centre located in Bikita Rural Area, it serves more t
 http://nyikaclinic.uksouth.cloudapp.azure.com/index.html
 
 ## Link to Demo Video 
+https://www.youtube.com/watch?v=jzpYzAegBLM&feature=youtu.be 
 
 
 ## Usage
