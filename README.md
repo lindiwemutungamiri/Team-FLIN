@@ -8,7 +8,7 @@ Being the only Health Care Centre located in Bikita Rural Area, it serves more t
 
 ## Link to Azure Hosting
 
-
+http://nyikaclinic.uksouth.cloudapp.azure.com/index.html
 
 ## Link to Demo Video 
 
@@ -17,8 +17,9 @@ Being the only Health Care Centre located in Bikita Rural Area, it serves more t
 
 
 ### How to Build the Application
-I built the application using bootstrap as my design template. I used CSS for styling, Javascript and PHP for validation, and PHP to code the server side of the application. The index page is an html since it is just a landing page. 
+I built the application using bootstrap as my design template. I used CSS for styling, Javascript and PHP for validation, and PHP to code the server side of the application. The index page is an html since it is just a landing page. I also used javascript for frontend validation and php for  backend validation. To build the application, I first created a database on phpmyadmin. Then I created the tables on php my admin. I used php to link my database with the drugs, patients, and employees files in the code. 
 
+The code is organized accordingly into folders. Then I lastly built the landing page with html. The login on the landing page under pages then links the clinic admin to the admin dashboard. The landing page is for visitors of the clinic who want to know more about what we do. Then the admin dashboard is for the clinic admin to monitor data in the clinic. 
 
 ### How to use and run the application
 
@@ -30,6 +31,6 @@ The same goes for the employees as well where the user can add, delete, update o
 
 
 ## How to run the tests
-
+To run the tests, navigate to the tests folder and run the CrudTest.php file. There are 7 tests in the file 
 
 
