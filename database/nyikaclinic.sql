@@ -3,9 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2020 at 06:25 PM
+-- Generation Time: Dec 14, 2020 at 10:18 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
+
+CREATE DATABASE nyikaclinic;
+USE nyikaclinic;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,8 +29,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `drugs`
 --
-CREATE DATABASE nyikaclinic;
-USE nyikaclinic;
 
 CREATE TABLE `drugs` (
   `DrugID` int(80) NOT NULL,
