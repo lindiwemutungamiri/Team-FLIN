@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '6a53fad5b153525c092f2ee14b7f18ff65eb9c38',
+    'reference' => 'e2165c4566d2518262661b2e8f31f8cb98958c2f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '6a53fad5b153525c092f2ee14b7f18ff65eb9c38',
+      'reference' => 'e2165c4566d2518262661b2e8f31f8cb98958c2f',
     ),
     'doctrine/instantiator' => 
     array (
@@ -62,12 +62,12 @@
     ),
     'phar-io/version' => 
     array (
-      'pretty_version' => '3.0.3',
-      'version' => '3.0.3.0',
+      'pretty_version' => '3.0.4',
+      'version' => '3.0.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '726c026815142e4f8677b7cb7f2249c9ffb7ecae',
+      'reference' => 'e4782611070e50613683d2b9a57730e9a3ba5451',
     ),
     'phpdocumentor/reflection-common' => 
     array (
