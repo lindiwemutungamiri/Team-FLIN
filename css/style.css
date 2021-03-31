@@ -83,3 +83,7 @@ form {
     width: 50%;
     text-align: center;
 }
+
+.test{
+    border: 100%;
+}
