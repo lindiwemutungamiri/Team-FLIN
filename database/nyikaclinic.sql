@@ -127,7 +127,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`username`, `email`, `user_password`) VALUES
 ('lindiwemutungamiri', 'lindiwe.mutungamiri@ashesi.edu.gh', 'c9464ab56af00b7e8092e334aea6765c'),
 ('maideigutu', 'maideigutu23@gmail.com', 'c9464ab56af00b7e8092e334aea6765c'),
-('tendai', 'tendai@gmail.com', 'c9464ab56af00b7e8092e334aea6765c');
+('tendai', 'tendai@gmail.com', 'c9464ab56af00b7e8092e334aea6765c'),
+('nanakofi','nana.boakye@ashesi.edu.gh','ec8ca993d675d0e9931d61391fbf498e');
 
 --
 -- Indexes for dumped tables

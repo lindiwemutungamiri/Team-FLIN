@@ -67,7 +67,7 @@ include('server.php');
           <script>
           window.onload = function() {
             alert("Registration Successful");
-            location.href = "login.php";  
+            location.href = "../login/login.php";  
           }
           </script>
           ';
