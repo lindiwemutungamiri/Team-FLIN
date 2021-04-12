@@ -6,13 +6,6 @@ Being the only Health Care Centre located in Bikita Rural Area, it serves more t
  
  The clinic administrators can add data to the database, view tables, edit the data, and delete the data as well. 
 
-## Link to Azure Hosting
-
-http://nyikaclinic.uksouth.cloudapp.azure.com/index.html
-
-## Link to Demo Video 
-https://www.youtube.com/watch?v=jzpYzAegBLM&feature=youtu.be 
-
 
 ## Usage
 
